@@ -1,6 +1,6 @@
 <ul>
     @for (officer of officers; track officer.name) {
-        <li>
+        <li (click)="logOfficerIn(officer.name)">
             {{ officer.name }}
         </li>
     }

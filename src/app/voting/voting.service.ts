@@ -5,7 +5,7 @@ import { Ballot } from './voting.models'
 
 const firebaseConfig = {
     apiKey: "AIzaSyDowxTuauAVSF_keiMEPOH78bUkEF1giVQ",
-    authDomain: "szavaz.firebaseapp.com",
+    authDomain: "szavaz.cserkesz.ca",
     projectId: "szavaz",
     storageBucket: "szavaz.appspot.com",
     messagingSenderId: "176597772908",

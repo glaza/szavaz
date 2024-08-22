@@ -1,7 +1,8 @@
+
+<button (click)="createBallot()">Új szavazás</button>
+
 <ul>
     @for (ballot of ballots; track ballot.timestamp) {
-        <li>
-            {{ ballot.title }}
-        </li>
+        <app-ballot [ballot]="ballot" />
     }
 </ul>

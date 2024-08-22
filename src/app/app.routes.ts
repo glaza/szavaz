@@ -1,9 +1,10 @@
 import { Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component'
 import { BallotsComponent } from './ballots/ballots.component'
+import { NewBallotComponent } from './new-ballot/new-ballot.component'
 
 export const routes: Routes = [
-    { path: '', redirectTo: '/login', pathMatch: 'full' },
     { path: 'login', component: LoginComponent },
-    { path: 'ballots', component: BallotsComponent },
+    { path: '', component: BallotsComponent, pathMatch: 'full' },
+    { path: 'new', component: NewBallotComponent, pathMatch: 'full' },
 ]

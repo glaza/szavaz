@@ -1,29 +1,37 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
 import { VotingService } from '../voting/voting.service'
 import { Ballot } from '../voting/voting.models'
+import { Router } from '@angular/router'
+import { isLoggedIn } from '../login/login'
+import { BallotComponent } from '../ballot/ballot.component'
 
 @Component({
-  selector: 'app-ballots',
-  standalone: true,
-  imports: [],
-  templateUrl: './ballots.component.html',
-  styleUrl: './ballots.component.scss'
+    selector: 'app-ballots',
+    standalone: true,
+    imports: [
+        BallotComponent,
+    ],
+    templateUrl: './ballots.component.html',
+    styleUrl: './ballots.component.scss',
 })
-export class BallotsComponent {
+export class BallotsComponent implements OnInit {
 
     ballots!: Ballot[]
 
     constructor(
+        private router: Router,
         private readonly votingService: VotingService,
-    ) { }
+    ) {
+        if (!isLoggedIn()) {
+            router.navigate(['/login'])
+        }
+    }
 
     async ngOnInit() {
-        // await this.votingService.storeBallot({
-        //     timestamp: new Date().toISOString(),
-        //     title: 'Best fruit',
-        //     description: 'Which is the best fruit?',
-        //     choices: ['Apple', 'Banana', 'Orange']
-        // })
         this.ballots = await this.votingService.getBallots()
+    }
+
+    createBallot() {
+        this.router.navigate(['/new'])
     }
 }
