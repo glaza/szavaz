@@ -13,7 +13,7 @@ import { getUsername } from '../login/login'
 export class BallotComponent implements OnInit {
 
     @Input() ballot!: Ballot
-    links!: string[]
+    htmlDescription!: string
 
     votes!: Vote[]
 
@@ -25,9 +25,13 @@ export class BallotComponent implements OnInit {
     async ngOnInit() {
         await this.refreshVotes()
 
-        this.links = this.ballot.description
+        this.htmlDescription = this.ballot.description
+        this.htmlDescription
             .split("\s|\n")
-            .filter(word => word.startsWith("http"))
+            .filter(word => word.startsWith("https://"))
+            .forEach(url =>
+                this.htmlDescription = this.htmlDescription.replace(url, `<a target="_blank" href="${url}">${url}</a>`)
+            )
     }
 
     async refreshVotes() {
