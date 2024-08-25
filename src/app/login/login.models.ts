@@ -1,5 +1,11 @@
 
-export const users = [
+export interface User {
+    name: string
+    rank?: string
+    votes: number
+}
+
+export const users: User[] = [
     {
         name: 'Herédi Marika néni',
         rank: 'cscst',
@@ -77,12 +83,22 @@ export const users = [
     },
     {
         name: 'Borgula Detti',
-        rank: 'fcsj',
-        votes: 1,
+        votes: 0,
     },
     {
         name: 'Hajzer Sanyi',
-        rank: 'fcsj',
-        votes: 1,
+        votes: 0,
+    },
+    {
+        name: 'Nemoda Zsófi',
+        votes: 0,
+    },
+    {
+        name: 'Nagy Ági',
+        votes: 0,
+    },
+    {
+        name: 'Zsiga János',
+        votes: 0,
     },
 ]

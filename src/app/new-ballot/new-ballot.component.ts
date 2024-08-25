@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms'
 import { MatIconModule } from '@angular/material/icon'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
+import { getUsername } from '../login/login'
 
 @Component({
     selector: 'app-new-ballot',
@@ -23,6 +24,7 @@ export class NewBallotComponent {
 
     ballot: Ballot = {
         timestamp: new Date().toISOString(),
+        creator: getUsername(),
         title: '',
         description: '',
         choices: ['Igen', 'Nem', 'Talán'],

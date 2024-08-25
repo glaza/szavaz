@@ -1,6 +1,7 @@
 
 export interface Ballot {
     timestamp: string
+    creator: string
     title: string
     description: string
     choices: string[]

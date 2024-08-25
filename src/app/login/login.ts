@@ -1,4 +1,5 @@
 import { ensure } from '../../utils'
+import { User, users } from './login.models'
 
 export function isLoggedIn(): boolean {
     return !!localStorage.getItem('user')
@@ -14,4 +15,8 @@ export function logout(): void {
 
 export function getUsername(): string {
     return ensure(localStorage.getItem('user'))
+}
+
+export function getUser(): User {
+    return ensure(users.find(user => user.name === getUsername()))
 }

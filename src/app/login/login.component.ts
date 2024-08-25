@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { users } from './login.models'
+import { User, users } from './login.models'
 import { login, logout } from './login'
 import { Router } from '@angular/router'
 
@@ -12,7 +12,7 @@ import { Router } from '@angular/router'
 })
 export class LoginComponent {
 
-    users = users
+    users = users.sort((a, b) => a.name.localeCompare(b.name))
 
     constructor(
         private router: Router,
@@ -23,5 +23,9 @@ export class LoginComponent {
     logUserIn(name: string) {
         login(name)
         this.router.navigate(['/'])
+    }
+
+    formatName(user: User) {
+        return user.rank ? `${user.name}, ${user.rank}.` : user.name
     }
 }

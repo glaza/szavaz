@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core'
 import { Ballot, Vote } from '../voting/voting.models'
 import { VotingService } from '../voting/voting.service'
-import { getUsername } from '../login/login'
+import { getUser, getUsername } from '../login/login'
 
 @Component({
   selector: 'app-ballot',
@@ -43,6 +43,12 @@ export class BallotComponent implements OnInit {
     }
 
     async vote(choice: number) {
+        const currentUser = getUser()
+        if (currentUser.votes === 0 && this.ballot.creator !== currentUser.name) {
+            alert('Bocs, de csak cserkész tisztek tudnak szavazni mások kérdésére!')
+            return
+        }
+
         await this.votingService.vote(this.ballot, {
             timestamp: new Date().toISOString(),
             name: getUsername(),
