@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core'
 import { Ballot, Vote } from '../voting/voting.models'
 import { VotingService } from '../voting/voting.service'
 import { getUser, getUsername } from '../login/login'
+import { getOfficerCount } from '../login/login.models'
 
 @Component({
   selector: 'app-ballot',
@@ -55,5 +56,9 @@ export class BallotComponent implements OnInit {
             choice,
         })
         await this.refreshVotes()
+    }
+
+    getProgress() {
+        return Math.round(this.votes.length / getOfficerCount() * 100)
     }
 }

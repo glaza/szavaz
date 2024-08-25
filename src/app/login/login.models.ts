@@ -102,3 +102,11 @@ export const users: User[] = [
         votes: 0,
     },
 ]
+
+export function isOfficer(user: User) {
+    return user.rank && /(cs)?c?st/.test(user.rank)
+}
+
+export function getOfficerCount() {
+    return users.filter(user => isOfficer(user)).length
+}
