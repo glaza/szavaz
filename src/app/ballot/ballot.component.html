@@ -9,7 +9,7 @@
 <ul>
     @for (choice of ballot.choices; let index = $index; track index) {
         <li (click)="vote(index)">
-            {{ choice }} ({{ countVotes(index) }})
+            <span class="choice">{{ choice }}</span> ({{ countVotes(index) }})
         </li>
     }
 </ul>
