@@ -1,4 +1,31 @@
-Kérdés: <input />
-Részletek: <textarea></textarea>
-Válaszok: <textarea></textarea>
-<button (click)="saveBallot()">Mentés</button>
+<div>
+    <mat-form-field>
+        <mat-label>Kérdés</mat-label>
+        <input matInput type="text" [(ngModel)]="ballot.title" />
+    </mat-form-field>
+</div>
+
+<div>
+    <mat-form-field>
+        <mat-label>Részletek</mat-label>
+        <textarea matInput [(ngModel)]="ballot.description"></textarea>
+    </mat-form-field>
+</div>
+
+<div>
+    <ol>
+        @for (choice of ballot.choices; let index = $index; track index) {
+            <li>
+                <mat-form-field>
+                    <input matInput type="text" [(ngModel)]="ballot.choices[index]" />
+                </mat-form-field>
+                <mat-icon fontIcon="close" (click)="ballot.choices.splice(index, 1)" />
+            </li>
+        }
+        <mat-icon fontIcon="add_circle" (click)="ballot.choices.push('')" />
+    </ol>
+</div>
+
+<div>
+    <button (click)="saveBallot()">Mentés</button>
+</div>

@@ -1,0 +1,15 @@
+<div class="top-right">
+    <div class="username">{{ username }}</div>
+    <div class="logout" (click)="router.navigate(['/login'])">(nem én vagyok)</div>
+</div>
+
+<ul>
+    <li>
+        <mat-icon fontIcon="add_circle" (click)="this.router.navigate(['/new'])"></mat-icon>
+    </li>
+    @for (ballot of ballots; track ballot.timestamp) {
+        <li>
+            <app-ballot [ballot]="ballot" />
+        </li>
+    }
+</ul>

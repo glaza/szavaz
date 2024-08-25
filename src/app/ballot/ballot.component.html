@@ -1,6 +1,26 @@
 <h3>
     {{ ballot.title }}
 </h3>
+
 <p>
-    {{ ballot.description }}
+    {{ ballot.description}}
 </p>
+
+<h5>Linkek:</h5>
+<ol>
+    @for (link of links; track link) {
+        <li>
+            <a href="{{ link }}">{{ link }}</a>
+        </li>
+    }
+</ol>
+
+<br/>
+<h5>Választékok:</h5>
+<ul>
+    @for (choice of ballot.choices; let index = $index; track index) {
+        <li (click)="vote(index)">
+            {{ choice }} ({{ countVotes(index) }})
+        </li>
+    }
+</ul>

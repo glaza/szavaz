@@ -1,63 +1,88 @@
 
-export const officers = [
+export const users = [
     {
         name: 'Herédi Marika néni',
-        votes: 2,
-    },
-    {
-        name: 'Pelikán Anikó bá',
-        votes: 2,
-    },
-    {
-        name: 'Hille Heidi bá',
-        votes: 2,
+        rank: 'cscst',
+        votes: 1,
     },
     {
         name: 'Glaser-Hille Ildikó',
-        votes: 2,
+        rank: 'cscst',
+        votes: 1,
+    },
+    {
+        name: 'Pelikán Anikó bá',
+        rank: 'cst',
+        votes: 1,
+    },
+    {
+        name: 'Glaser-Hille Heidi bá',
+        rank: 'cst',
+        votes: 1,
     },
     {
         name: 'Laza Gyuri',
-        votes: 2,
+        rank: 'cst',
+        votes: 1,
     },
     {
         name: 'Edvi István',
-        votes: 2,
+        rank: 'cst',
+        votes: 1,
     },
     {
         name: 'Csukly Erzsi',
-        votes: 2,
+        rank: 'cst',
+        votes: 1,
     },
     {
         name: 'Rüll Kriszti bá',
+        rank: 'st',
         votes: 1,
     },
     {
         name: 'Kerkai Béla',
+        rank: 'st',
         votes: 1,
     },
     {
         name: 'Pelikán Anikó',
+        rank: 'st',
         votes: 1,
     },
     {
         name: 'Edvi Krisztina',
+        rank: 'st',
         votes: 1,
     },
     {
         name: 'Rüll Sebi',
+        rank: 'st',
         votes: 1,
     },
     {
         name: 'Viski Timi',
+        rank: 'st',
         votes: 1,
     },
     {
         name: 'Károly Isti',
+        rank: 'st',
         votes: 1,
     },
     {
         name: 'Edvi Diana',
+        rank: 'st',
+        votes: 1,
+    },
+    {
+        name: 'Borgula Detti',
+        rank: 'fcsj',
+        votes: 1,
+    },
+    {
+        name: 'Hajzer Sanyi',
+        rank: 'fcsj',
         votes: 1,
     },
 ]

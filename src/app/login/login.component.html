@@ -1,7 +1,7 @@
 <ul>
-    @for (officer of officers; track officer.name) {
-        <li (click)="logOfficerIn(officer.name)">
-            {{ officer.name }}
+    @for (user of users; track user.name) {
+        <li (click)="logUserIn(user.name)">
+            {{ user.name }}
         </li>
     }
 </ul>

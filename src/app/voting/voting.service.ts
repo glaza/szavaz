@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core'
 import { FirebaseApp, initializeApp } from "firebase/app"
 import { getFirestore, Firestore, collection, getDocs, setDoc, doc, QueryDocumentSnapshot, CollectionReference } from 'firebase/firestore'
-import { Ballot } from './voting.models'
+import { Ballot, Vote } from './voting.models'
 
 const firebaseConfig = {
     apiKey: "AIzaSyDowxTuauAVSF_keiMEPOH78bUkEF1giVQ",
@@ -30,25 +30,23 @@ export class VotingService {
     }
 
     async getBallots(): Promise<Ballot[]> {
-        console.log(`get ballots`)
         const snapshot = await getDocs(this.ballotCollection)
         this.ballotDocs = snapshot.docs
         const ballots = this.ballotDocs.map(doc => doc.data()) as Ballot[]
-        return ballots.sort((a, b) => new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime())
+        return ballots.sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime())
     }
 
     async storeBallot(ballot: Ballot) {
         await setDoc(doc(this.ballotCollection, `${ballot.timestamp}`), ballot)
     }
 
-    // async getResults(ballot: Ballot): Promise<Ballot[]> {
-    //
-    // }
+    async getVotes(ballot: Ballot): Promise<Vote[]> {
+        const snapshot = await getDocs(collection(this.db, `ballots/${ballot.timestamp}/votes`))
+        return snapshot.docs.map(doc => doc.data()) as Vote[]
+    }
 
-    async castVote(ballot: Ballot) {
-        const ballotDoc = this.ballotDocs.find(b => (b.data() as Ballot).timestamp === ballot.timestamp)
-
-        await setDoc(doc(this.ballotCollection, `ballots`), ballot)
+    async vote(ballot: Ballot, vote: Vote) {
+        await setDoc(doc(collection(this.db, `ballots/${ballot.timestamp}/votes`), vote.name), vote)
     }
 }
 

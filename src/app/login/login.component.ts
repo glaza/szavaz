@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { officers } from './login.models'
+import { users } from './login.models'
 import { login, logout } from './login'
 import { Router } from '@angular/router'
 
@@ -12,7 +12,7 @@ import { Router } from '@angular/router'
 })
 export class LoginComponent {
 
-    officers = officers
+    users = users
 
     constructor(
         private router: Router,
@@ -20,7 +20,7 @@ export class LoginComponent {
         logout()
     }
 
-    logOfficerIn(name: string) {
+    logUserIn(name: string) {
         login(name)
         this.router.navigate(['/'])
     }
