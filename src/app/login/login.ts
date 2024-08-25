@@ -20,3 +20,11 @@ export function getUsername(): string {
 export function getUser(): User {
     return ensure(users.find(user => user.name === getUsername()))
 }
+
+export function isOfficer(user: User) {
+    return user.rank && /(cs)?c?st/.test(user.rank)
+}
+
+export function getOfficerCount() {
+    return users.filter(user => isOfficer(user)).length
+}

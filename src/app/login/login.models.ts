@@ -95,18 +95,52 @@ export const users: User[] = [
     },
     {
         name: 'Nagy Ági',
+        rank: 'fcs',
         votes: 0,
     },
     {
         name: 'Zsiga János',
+        rank: 'fcs',
         votes: 0,
     },
+    {
+        name: 'Edvi Robi',
+        rank: 'őv',
+        votes: 0,
+    },
+    {
+        name: 'Fontányi Anna',
+        rank: 'st',
+        votes: 1,
+    },
+    {
+        name: 'Laskai János',
+        rank: 'st',
+        votes: 0,
+    },
+    {
+        name: 'Szendrei Adrienne',
+        rank: 'őv',
+        votes: 0,
+    },
+    {
+        name: 'Szabó Viki',
+        rank: 'őv',
+        votes: 0,
+    },
+    {
+        name: 'Aspirot Gábriel',
+        rank: 'őv',
+        votes: 0,
+    },
+    {
+        name: 'Viski Enikő',
+        rank: 'fcs',
+        votes: 0,
+    },
+    {
+        name: 'Zsohár Zsófi',
+        rank: 'cs',
+        votes: 0,
+    }
 ]
-
-export function isOfficer(user: User) {
-    return user.rank && /(cs)?c?st/.test(user.rank)
-}
-
-export function getOfficerCount() {
-    return users.filter(user => isOfficer(user)).length
-}

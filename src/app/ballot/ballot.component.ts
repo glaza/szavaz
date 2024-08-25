@@ -1,8 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core'
 import { Ballot, Vote } from '../voting/voting.models'
 import { VotingService } from '../voting/voting.service'
-import { getUser, getUsername } from '../login/login'
-import { getOfficerCount } from '../login/login.models'
+import { getUser, getUsername, getOfficerCount } from '../login/login'
 
 @Component({
   selector: 'app-ballot',
