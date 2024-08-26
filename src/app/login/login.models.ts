@@ -47,7 +47,7 @@ export const users: User[] = [
         votes: 1,
     },
     {
-        name: 'Kerkai Béla',
+        name: 'Kerkay Béla',
         rank: 'st',
         votes: 1,
     },
