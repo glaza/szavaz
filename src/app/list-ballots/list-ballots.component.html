@@ -4,12 +4,14 @@
 </div>
 
 <ul>
-    <li>
-        <mat-icon fontIcon="add_circle" (click)="this.router.navigate(['/new'])"></mat-icon>
+    <li class="new-ballot" (click)="this.router.navigate(['/new'])">
+        <mat-icon fontIcon="add_circle"></mat-icon>Új kérdés
     </li>
+    <hr />
     @for (ballot of ballots; track ballot.timestamp) {
         <li>
             <app-ballot [ballot]="ballot" />
         </li>
+        <hr />
     }
 </ul>
