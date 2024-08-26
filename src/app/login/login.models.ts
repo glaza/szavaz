@@ -142,5 +142,10 @@ export const users: User[] = [
         name: 'Zsohár Zsófi',
         rank: 'cs',
         votes: 0,
-    }
+    },
+    {
+        name: 'Fazakas Krisztina',
+        rank: 'cs',
+        votes: 0,
+    },
 ]
