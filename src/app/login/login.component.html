@@ -1,8 +1,13 @@
-<h1>Klikely a nevedre...</h1>
-<ul>
-    @for (user of users; track user.name) {
-        <li (click)="logUserIn(user.name)">
-            {{ formatName(user) }}
-        </li>
-    }
-</ul>
+
+<div class="container">
+    <h1>Klikely a nevedre...</h1>
+    <ul>
+        @for (user of users; track user.name) {
+            <li (click)="logUserIn(user.name)">
+                {{ formatName(user) }}
+            </li>
+        }
+    </ul>
+</div>
+
+
